@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100vh;
+            background-color: rgb(220, 250, 250);
+            margin: 0;
+            padding: 0;
+       }
+       #catchme{
+            position: fixed;
+            display: inline-block;
+            height: auto;
+            width: auto;
+            color: red;
+            font-weight: bold;
+            font-size: 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+        #licznik{
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        </style>
+</head>
+<body>
+
+    <div id="licznik">Ilość prób: 0</div>
+    <div>
+        <div id="catchme">Catch me</div>
+    </div>
+    
+    <script>
+        const licznik = document.getElementById('licznik');
+        const div = document.getElementById('catchme');
+        let proby = 0;
+
+        function moveDiv() {
+            const width = window.innerWidth - div.offsetWidth;
+            const height = window.innerHeight - div.offsetHeight;
+
+            const x = width * Math.random();
+            const y = height * Math.random();
+            div.style.left = x + 'px';
+            div.style.top = y + 'px';
+        }
+        
+        div.addEventListener('mouseenter', function(){
+            proby++;
+            licznik.innerHTML = `Ilość prób: ${proby}`;           
+            moveDiv();
+        });
+        
+
+
+        window.addEventListener('resize', function() {
+            if ((window.innerWidth <= (div.offsetLeft + div.offsetWidth)) || window.innerHeight <= (div.offsetHeight + div.offsetTop)){
+                moveDiv();
+                proby++;
+                licznik.innerHTML = `Ilość prób: ${proby}`;
+            }
+        });
+    
+    </script>
+</body>
+</html>

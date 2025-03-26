@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100vh;
+            background-color: rgb(1, 49, 23);
+            margin: 0;
+            padding: 0;
+       }
+
+       #SeeMe{
+        color: rgb(41, 250, 13);
+        font-size: 50px;
+        display: block;
+       }
+    </style>
+</head>
+<body>
+    <div id="SeeMe">Do you see me?</div>
+
+    <script>
+
+        const See = document.getElementById('SeeMe');
+        See.addEventListener('mouseenter', function(){
+            See.style.opacity = '0';
+        });
+
+        See.addEventListener('mouseleave', function(){
+            See.style.transition = 'opacity 0.3s ease';
+            See.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>

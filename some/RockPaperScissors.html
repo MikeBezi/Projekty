@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: blanchedalmond;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #rock, #paper, #scissors{
+            background-color: aqua;
+            border: 10px solid black;
+            border-radius: 100%;
+            font-size: 200px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }  
+        #rock:hover, #paper:hover, #scissors:hover {
+            transform: scale(1.1);
+            transform: rotate(120deg);
+        }
+        .buttons-container {
+            display: flex;
+            gap: 60px;
+        }
+        #wynik, #remis, #porazka {
+            font-size: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        #przeciwnik{
+            opacity: 0;
+        }
+        #rock:hover, #paper:hover, #scissors:hover{
+            background-color: black;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="przeciwnik">Przeciwnik wybrał: Rock</div>
+    <div id="wynik">Wygrane: 0</div>
+    <div id="remis">Remisy: 0</div>
+    <div id="porazka">Przegrane: 0</div>
+    <div class="buttons-container">
+        <div id="rock">✊</div>
+        <div id="paper">✋</div>
+        <div id="scissors">✌️</div>
+        
+    </div>
+
+    <script>
+        const rock = document.getElementById('rock');
+        const paper = document.getElementById('paper');
+        const scissors = document.getElementById('scissors');
+        const wynik = document.getElementById('wynik');
+        const przeciwnik = document.getElementById('przeciwnik');
+        const remis = document.getElementById('remis');
+        const porazka = document.getElementById('porazka');
+        let iloscPunktow = 0;
+        let iloscRemis = 0;
+        let iloscPorazek = 0;
+
+
+        function computer_choice(){
+            const number = Math.floor(Math.random() * 3) + 1;           
+            switch (number){
+                case 1: 
+                    return "rock";
+                case 2: 
+                    return "paper";
+                case 3: 
+                    return "scissors";
+                default:
+                    return "error";
+            }
+        }
+
+        function who_win(player, computer){
+            if(player===computer){
+                iloscRemis++;
+                return "Remis!";
+            }
+
+            if (
+                (player === "rock" && computer === "scissors") ||
+                (player === "paper" && computer === "rock") ||
+                (player === "scissors" && computer === "paper")
+            ) {
+                iloscPunktow++;
+                return "Wygrałeś!";       
+            } else {
+                iloscPorazek++;
+                return "Komputer wygrał!";
+            }
+        }
+
+        rock.addEventListener('click', function(){
+            play("rock");
+        });
+
+        paper.addEventListener('click', function(){
+            play("paper");
+        });
+
+        scissors.addEventListener('click', function(){
+            play("scissors");
+        });
+
+        function play(player){
+            const choice_computer = computer_choice();
+            const win_who = who_win(player, choice_computer);
+            wynik.textContent = `Wynik: ${iloscPunktow}`;
+            remis.textContent = `Remisy: ${iloscRemis}`;
+            porazka.textContent = `Przegrane: ${iloscPorazek}`;
+            przeciwnik.style.opacity = 1;
+            przeciwnik.textContent = `Przeciwnik wybrał: ${choice_computer}`;
+        }
+
+    </script>
+   
+</body>
+</html>

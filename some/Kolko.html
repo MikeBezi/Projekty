@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            background-color: aquamarine;
+        }
+        .kolko{
+            background-color: red;
+            border-radius: 40%;
+            width: 200px;
+            height: 200px;
+            border: 5px solid black;
+            animation: rotate 0.1s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .kolko:hover{
+            animation: back 0.1s linear infinite;
+            background-color: black;
+            cursor: pointer;
+        }
+
+        @keyframes rotate {
+       from {
+           transform: rotate(0deg);
+       }
+       to {
+           transform: rotate(3360deg);
+       }
+    }
+
+       @keyframes back {
+       from {
+           transform: rotate(0deg);
+       }
+       to {
+           transform: rotate(-3360deg);
+       }
+   }
+    </style>
+</head>
+<body>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+    <div class="kolko"> SIEMA</div>
+
+</body>
+</html>
